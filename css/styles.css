@@ -535,8 +535,7 @@ footer {
   line-height: 1.25;
   letter-spacing: 0.03em;
   outline: none;
-  transition: border-color 250ms var(--distribution-time), drop-shadow 250ms var(--distribution-time),
-    color 250ms var(--distribution-time);
+  transition: border-color 250ms var(--distribution-time), color 250ms var(--distribution-time);
 }
 .footer-mail-input:focus,
 .footer-mail-input:hover {
@@ -698,58 +697,50 @@ footer {
   letter-spacing: 0.01em;
 }
 .form-checkbox {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
-  gap: 8px;
 }
 
-.checkbox-icon {
-  position: relative;
-  cursor: pointer;
-  width: 16px;
-  height: 15px;
-  border: 2px solid var(--title-text-color);
-  border-radius: 2px;
-  fill: var(--primary-color);
-  fill-opacity: 1;
-  transition: background-color 250ms var(--distribution-time), fill-opacity 250ms var(--distribution-time),
-    border-color 250ms var(--distribution-time);
-}
-.checkbox-icon:focus,
-.checkbox-icon:hover {
-  border-color: var(--brand-color);
-  background-color: var(--brand-color);
-  fill-opacity: 1;
-}
-
-.check-icon {
-  position: absolute;
-  top: 2px;
-  left: 1px;
-  color: inherit;
-}
 .checkbox {
   appearance: none;
-  position: absolute;
-  top: 4px;
-  left: 3px;
+  position: relative;
 }
-.checkbox:checked + .check-icon {
-  top: -2px;
-  left: -2px;
-  width: 16px;
-  height: 15px;
-  background-color: var(--brand-color);
-  fill: var(--primary-color);
-}
-
 .checkbox-label {
+  position: relative;
+  padding-left: 15px;
   cursor: pointer;
   line-height: 1.71;
   letter-spacing: 0.03em;
 }
+
+.checkbox-icon {
+  position: relative;
+}
+.check-icon {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 13px;
+  transform: translateY(-50%);
+  fill: var(--primary-color);
+  fill-opacity: 0;
+  border: 2px solid var(--title-text-color);
+  border-radius: 2px;
+  transition: background-color 250ms var(--distribution-time), border-color 250ms var(--distribution-time),
+    fill-opacity 250ms var(--distribution-time);
+}
+
+.checkbox:hover + .check-icon,
+.checkbox:focus + .check-icon,
+.checkbox:checked + .check-icon {
+  background-color: var(--brand-color);
+  border-color: var(--brand-color);
+  fill-opacity: 1;
+}
+
 .terms-text {
   color: var(--brand-color);
 }
