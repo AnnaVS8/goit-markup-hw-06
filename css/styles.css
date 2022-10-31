@@ -596,9 +596,9 @@ footer {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  min-width: 528px;
+  width: 528px;
   min-height: 581px;
-
+  padding: 40px;
   background-color: var(--primary-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
@@ -610,6 +610,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   top: 8px;
   right: 8px;
 
@@ -619,14 +620,17 @@ footer {
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: var(--primary-color);
   fill: rgba(0, 0, 0, 1);
+  transition: fill 250ms var(--distribution-time);
 }
 
 .modal-svg-btn {
   color: currentColor;
 }
-.contact-form {
-  padding: 40px;
+.modal-btn:hover,
+.modal-btn:focus {
+  fill: var(--brand-color);
 }
+/* Стилі для форми */
 .contact-form-title {
   margin-bottom: 12px;
   color: var(--title-text-color);
@@ -635,6 +639,9 @@ footer {
   line-height: 1.15;
   text-align: center;
   letter-spacing: 0.03em;
+}
+.form-input {
+  margin-bottom: 10px;
 }
 .form-input label,
 .form-textarea label {
@@ -645,7 +652,6 @@ footer {
 .input-inner-form {
   position: relative;
   margin-top: 4px;
-  margin-bottom: 10px;
   fill: var(--title-text-color);
 }
 
@@ -667,6 +673,7 @@ footer {
 }
 .input-icon {
   position: absolute;
+  pointer-events: none;
   top: 50%;
   left: 12px;
   transform: translateY(-50%);
@@ -682,12 +689,12 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  margin-bottom: 20px;
 }
 
 .textarea {
   height: 120px;
   padding: 12px 16px;
-  margin-bottom: 20px;
   resize: none;
 }
 .textarea::placeholder {
@@ -733,8 +740,9 @@ footer {
     fill-opacity 250ms var(--distribution-time);
 }
 
-.checkbox:hover + .check-icon,
-.checkbox:focus + .check-icon,
+.checkbox:focus-visible + .check-icon {
+  border-color: var(--brand-color);
+}
 .checkbox:checked + .check-icon {
   background-color: var(--brand-color);
   border-color: var(--brand-color);
