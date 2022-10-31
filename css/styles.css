@@ -677,18 +677,19 @@ footer {
   top: 50%;
   left: 12px;
   transform: translateY(-50%);
-  color: inherit;
+  color: currentColor;
   transition: fill 250ms var(--distribution-time);
 }
+
 .input:focus + .input-icon,
 .input:hover + .input-icon {
   fill: var(--brand-color);
 }
 
 .form-textarea {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 4px; */
   margin-bottom: 20px;
 }
 
@@ -723,9 +724,6 @@ footer {
   letter-spacing: 0.03em;
 }
 
-.checkbox-icon {
-  position: relative;
-}
 .check-icon {
   content: "";
   position: absolute;
